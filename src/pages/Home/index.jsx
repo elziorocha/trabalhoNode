@@ -1,30 +1,16 @@
 import './Home.css';
-
+import fotoeu from '../../Assets/Johnny Joestar.jpg';
+import Header from '../../Components/Header';
 
 function Home(){
   return(
       <div className='background_sobre'>
+      <Header/>
 
-          <ul class="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-
-        <section className='Banner_bemvindo'>
+        <section className='Banner_perfil'>
+          <img src={fotoeu} alt='imagem perfil'/>
           <h1>Enzo Rocha</h1>
           <h2>FrontEnd Portfolio</h2>
-
         </section>
         
       </div>

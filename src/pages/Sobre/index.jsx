@@ -1,23 +1,13 @@
 import { Link } from 'react-router-dom';
 import './Sobre.css';
+import Header from '../../Components/Header';
 
 function Sobre() {
   return (
     <div>
       <div className='background_sobre'>
-
-      <ul class="circles">
-                          <li></li>
-                          <li></li>
-                          <li></li>
-                          <li></li>
-                          <li></li>
-                          <li></li>
-                          <li></li>
-                          <li></li>
-                          <li></li>
-                          <li></li>
-                          <li></li>
+      <Header/>
+      
       <br />
         <div className="sobre_caixa">
           <h2>Acesse aos Jogos Instantaneamente</h2>
@@ -42,7 +32,7 @@ function Sobre() {
         </div>
 
         <br /><br /><Link to="/contato" className='links_sobre'>Nosso Contato</Link>
-      </ul>
+
       </div>
     </div>
   );
