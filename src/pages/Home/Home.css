@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.background_sobre {
+    position: relative;
+    height: 100vh;
+    background-color: rgb(206, 176, 139);
+}
+
+.Banner_perfil {
+    position: absolute;
+    top: 53%;
+    left: 50.5%;
+    transform: translate(-50%, -50%);
+}
+
+img {
+    border-radius: 50%;
+    border: 5px solid rgb(0, 0, 0);
+    box-shadow: 0px 0px 15px 8px rgba(36, 36, 36, 0.582);
+    width: 280px;
+    height: 280px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Banner_perfil h1 {
+    color: antiquewhite;
+    -webkit-text-stroke: 2px black;
+    text-shadow: -4px 4px 5px rgb(0, 0, 0);
+    font-size: 65px;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    letter-spacing: 1px;
+    cursor: default;
+    margin-top: 5px;
+}
+
+.Banner_perfil h2 {
+    text-align: center;
+    font-size: 35px;
+    color: antiquewhite;
+    text-shadow: -4px 4px 5px rgb(0, 0, 0);
+    -webkit-text-stroke: 1.5px black;
+    cursor: default;
+}

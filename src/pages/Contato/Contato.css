@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}   
+
+.background_contato {
+    position: relative;
+    height: 100vh;
+    background-color: rgb(206, 176, 139);
+}
+
+.contatos h2 {
+    background-color: rgb(209, 196, 180);
+    width: 180px;
+    text-align: center;
+    font-size: 34px;
+    color: antiquewhite;
+    text-shadow: -4px 4px 5px rgb(0, 0, 0);
+    -webkit-text-stroke: 1.5px black;
+    cursor: default;
+    margin-top: 25px;
+    padding-bottom: 5px;
+    left: 45%;
+    position: relative;
+    border-radius: 7px;
+    border: solid 2px black;
+    box-shadow: -3px 3px 10px black;
+}
+
+.contatos p {
+    width: 33%;
+    text-align: center;
+    font-size: 28px;
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+    text-shadow: -1px 1px 3px rgb(0, 0, 0);
+    cursor: default;;
+    left: 35%;
+    position: relative;
+}
