@@ -3,24 +3,21 @@ import Header from '../../Components/Header';
 
 function Contato(){
   return(
-    <div>
+    <div className='background_contato'>
         <Header/>
 
-        <ul class="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
+        <section className='contatos'>
+          <h2>Email</h2>
+          <p>rochasenzo.04@gmail.com</p>
+
+          <h2>Telefone</h2>
+          <p>(42) 98401-8839</p>
+
+          <h2>Linkedin</h2>
+          
+          <h2>GitHub</h2>
+
+        </section>
 
     </div>
   );
