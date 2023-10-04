@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../public/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/style.css"">
     
     <title>Blog</title>
 
 </head>
 <body>
 
-    <style>
-        body {
-            background-color: green;
-        }
-    </style>
 
-    <h1 id="título">Blog</h1>
-    <ul>
-        <% posts.forEach(function(post) {%> 
-            <li>    
-                <a href="/post/<%= post.id %>">
-                    <%= post.title %>
-                </a>
-            </li>
-        <% }); %>
-    </ul>
-    <a href="/add">Adicionar nova postagem</a>
+    <div id="container">
+        <h1 id="titulo">Blog Pampa</h1>
+        <ul class="postagens">    
+            <% posts.forEach(function(post) {%> 
+                <li class="postagens2">    
+                    <a href="/post/<%= post.id %>" class="post">
+                        <%= post.title %>
+                    </a>
+                </li>
+            <% }); %>
+        </ul>
+        <a href="/add" class="adicionar">Adicionar nova postagem</a>
+    </div>
 
 </body>
 </html>

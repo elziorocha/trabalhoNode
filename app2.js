@@ -9,7 +9,9 @@ app.set('views', __dirname + '/views');
 
 // configurar o body-parser para processar os dados do form
 app.use(bodyParser.urlencoded({extended : true}));
-app.use(express.static(__dirname + '/public'));
+
+//Linkar o CSS na pasta Public
+app.use(express.static(path.join(__dirname, 'public')))
 
 //blog
 const posts = [
