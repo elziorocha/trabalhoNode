@@ -5,7 +5,7 @@ body {
 #container {
     position: absolute;
     top: 20%;
-    left: 36.3%;
+    left: 35%;
 }
 
 #titulo {
@@ -65,13 +65,13 @@ body {
 
 /* Conteúdo dos Posts */
 .post_titulo {
-    background-color: rgb(112, 9, 107);
+    background: rgba(107, 99, 99, 0.54);
     max-width: 550px;
     height: auto;
     border-radius: 15px;
     box-shadow: 4px 4px 8px 3px black,
         -4px -4px 30px -20px white;
-    margin: 1em 0 0 22em;
+    margin: 1em 0 0 22.5em;
 }
 
 .post_titulo h1 {
@@ -79,9 +79,10 @@ body {
     text-align: center;
     font-size: 54px;
     font-family: Arial, Helvetica, sans-serif;
-    color: #877896;
+    color: #bb0600;
     text-shadow: -4px 4px 1px black;
-    padding: 13px 0;
+    padding: 11px 0;
+    padding-bottom: 14px;
 }
 
 .post_conteudo {
@@ -89,7 +90,7 @@ body {
     max-width: 600px;
     padding: 2em;
     padding-top: 1em;
-    margin: 4.5em 0 0 18.5em;
+    margin: 4.5em 0 0 19em;
     background: rgba(180, 180, 180, 0.34);
     border-radius: 8px;
     box-shadow: -1px 1px 1px 3px rgb(31, 31, 31);

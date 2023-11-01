@@ -10,11 +10,10 @@
 </head>
 <body>
 
-
-    <div id="container">
-        <h1 id="titulo">Blog Pampa</h1>
+        <div id="container">
+        <h1 id="titulo">Seus Posts</h1>
         <ul class="postagens">    
-            <% posts.forEach(function(post) {%> 
+            <% posts.forEach(function(post) {%>
                 <li class="postagens2">    
                     <a href="/post/<%= post.id %>" class="post">
                         <%= post.title %>
