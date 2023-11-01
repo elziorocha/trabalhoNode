@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
+const path = require('path');
 
 // configuração do ejs para carregar as views
 app.set('view engine', 'ejs');
@@ -11,19 +12,19 @@ app.set('views', __dirname + '/views');
 app.use(bodyParser.urlencoded({extended : true}));
 
 //Linkar o CSS na pasta Public
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 //blog
 const posts = [
     {
         id: 1,
-        title: 'Primeira Postagem',
-        content: 'Este é o conteúdo da primeira postagem'
+        title: 'Red Dead Redemption 2',
+        content: 'Muito Foda'
     },
     {
         id: 2,
-        title: 'Segunda Postagem',
-        content: 'Este é o conteúdo da segunda postagem'
+        title: 'Spider-Man 2',
+        content: 'Assegurado como um dos candidatos ao Game of The Year de 2023, bla bla bla'
     }
 ];
 
@@ -54,4 +55,9 @@ app.post('/add', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
+});
+
+//teste
+app.get('/teste', (req, res) => {
+    res.render('teste');
 });
