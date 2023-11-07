@@ -1,63 +1,49 @@
 const express = require('express');
+const { getApps, initializeApp } = require('firebase/app');
+const { getAuth, signInWithEmailAndPassword } = require('firebase/auth');
 const app = express();
-const port = 3000;
-const bodyParser = require('body-parser');
-const path = require('path');
 
-// configuração do ejs para carregar as views
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-// configurar o body-parser para processar os dados do form
-app.use(bodyParser.urlencoded({extended : true}));
+var firebaseConfig = {
+    apiKey: "AIzaSyCebiwmgVov-Z5G4hZbhEL4IV4zwYoT9W8",
+    authDomain: "autenticacao-87c74.firebaseapp.com",
+    projectId: "autenticacao-87c74",
+    storageBucket: "autenticacao-87c74.appspot.com",
+    messagingSenderId: "778355577088",
+    appId: "1:778355577088:web:92a57ccaf3a27eb522a3e5",
+    measurementId: "G-ZXKEF3F3MR"
+};
 
-//Linkar o CSS na pasta Public
-app.use(express.static(path.join(__dirname, 'public')));
+const firebaseApp = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
+const auth = getAuth(firebaseApp);
 
-//blog
-const posts = [
-    {
-        id: 1,
-        title: 'Red Dead Redemption 2',
-        content: 'Muito Foda'
-    },
-    {
-        id: 2,
-        title: 'Spider-Man 2',
-        content: 'Assegurado como um dos candidatos ao Game of The Year de 2023, bla bla bla'
-    }
-];
-
-//Rota principal
 app.get('/', (req, res) => {
-    res.render('index', { posts });
+    res.render('index');
 });
 
-//Rota para exibir uma postagem individual
-app.get('/post/:id', (req, res) => {
-    const id = req.params.id;
-    const post = posts.find(post => post.id === parseInt(id));
-    res.render('post', { post });
+app.post('/login', async (req, res) => {
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, req.body.email, req.body.password);
+        console.log(userCredential); // Adicione esta linha
+        res.redirect('/home');
+    } catch (error) {
+        res.send(error.message);
+    }
 });
 
-//Rota para exibir o formulário de adição de post
-app.get('/add', (req, res) => {
-    res.render('add');
+
+app.get('/home', (req, res) => {
+    const user = auth.currentUser;
+    console.log(user); // Adicione esta linha
+    if (user) {
+        res.render('home', { user: user });
+    } else {
+        res.redirect('/');
+    }
 });
 
-//Rota para processar a adição da postagem
-app.post('/add', (req, res) => {
-    const { title, content } = req.body;
-    const id = posts.length + 1;
-    posts.push({id, title, content});
-    res.redirect('/');
-});
 
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-});
-
-//teste
-app.get('/teste', (req, res) => {
-    res.render('teste');
-});
+app.listen(3000, () => console.log('Server started on port 3000'));
