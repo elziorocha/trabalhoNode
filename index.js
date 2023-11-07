@@ -28,7 +28,6 @@ function auth(req, res, next) {
     if (req.query.admin === 'true') {
         req.admin = true
         next()
-        return
     } else {
         res.send('Sem Autenticação')
     }
