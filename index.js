@@ -15,15 +15,17 @@ app.get('/', (req, res) => {
 
 app.get('/users', auth, (req, res) => {
     console.log(`Usuário admin = ${req.admin}`)
-    console.log('Página do Usuário')
-    res.send('Página do Usuário')
+    console.log('Página do Usuário acessada')
+    res.send('Página do Usuário autorizada')
 })
 
+// função global para disparar mensagem
 function logger(req, res, next) {
-    console.log('usuário trocou de página')
+    console.log('Usuário trocou de página')
     next()
 }
 
+//função principal de autenticação
 function auth(req, res, next) {
     if (req.query.admin === 'true') {
         req.admin = true
