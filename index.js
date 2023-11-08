@@ -1,14 +1,40 @@
-// math.test.js
-const { soma } = require('./math');
+const express = require('express');
+const app = express();
+const port = 3333;
 
-describe('Testando a função soma', () => {
-  it('Deve somar dois números corretamente', () => {
-    const resultado = soma(2, 3);
-    expect(resultado).toBe(5);
-  });
+// middleware global (para todas as páginas) (troca de página e horário)
+app.use(logger, (req, res, next) => {
+    const currentDate = new Date();
+    console.log(`Solicitação recebida em: ${currentDate}`);
+    next();
+});
 
-  it('Deve somar números negativos corretamente', () => {
-    const resultado = soma(-2, -3);
-    expect(resultado).toBe(-5);
-  });
+app.get('/', (req, res) => {
+    res.send('Home')
+})
+
+app.get('/users', auth, (req, res) => {
+    console.log(`Usuário admin = ${req.admin}`)
+    console.log('Página do Usuário acessada')
+    res.send('Página do Usuário autorizada')
+})
+
+// função global para disparar mensagem
+function logger(req, res, next) {
+    console.log('Usuário trocou de página')
+    next()
+}
+
+//função principal de autenticação
+function auth(req, res, next) {
+    if (req.query.admin === 'true') {
+        req.admin = true
+        next()
+    } else {
+        res.send('Sem Autenticação')
+    }
+}
+
+app.listen(3333, () => {
+    console.log(`Console iniciado na porta http://localhost:${port}`)
 });
