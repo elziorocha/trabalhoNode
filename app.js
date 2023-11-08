@@ -122,15 +122,22 @@ app.get('/carrinho', (req, res) => {
     const total = carrinho.reduce((acc, produto_controle) => acc + produto_controle.preco, 0);
 
     res.send(`
-        <h1>Nota final</h1>
-        <ul>
-        ${carrinho.map(
-            (produto_controle) => `<li>${produto_controle.nome} - ${produto_controle.preco}</li>`
-        ).join("")}    
-    </ul>
+    <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/style.css">
+    </head>
+
+        <div class="nota_final">
+            <h1>Nota Final</h1>
     
-    <p>Total: ${total / 5}</p>
-    <a href="/avaliar">Continuar avaliando</a>
+            <div class="caixa_nota">
+                <p>${total / 5}</p>
+            </div>
+
+            <div class="voltar">
+                <a href="/avaliar">Voltar</a>
+            </div>
+        </div>
 
     `);
 });

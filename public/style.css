@@ -127,6 +127,7 @@ body {
     border-radius: 30px;
     text-align: center;
     height: 330vh;
+    box-shadow: 0 0 1px 25px rgb(5, 5, 44);
 }
 
 .container_avaliar h1{
@@ -169,6 +170,8 @@ body {
     margin: 2em 5em 0 1em;
     display: flex;
     flex-direction: column;
+    font-family: monospace;
+    font-size: 16px;
 }
 
 .container_avaliar button {
@@ -191,8 +194,68 @@ body {
     border-radius: 10px;
     border: solid 3px black;
     background-color: rgb(2, 2, 27);
+    box-shadow: -5px 5px 1px 2px black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
     text-decoration: none;
     color: white;
+}
+
+/* Nota Final */
+
+.nota_final {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(13, 13, 61);
+    width: 600px;
+    padding: 20px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 0 1px 350px rgb(5, 5, 44);
+    margin-top: 8em;
+    margin-left: 21em;
+}
+
+.nota_final h1 {
+    color: rgb(228, 220, 173);
+    font-size: 56px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+    -webkit-text-stroke: 1px rgb(150, 130, 16);
+    text-shadow: -4px 4px 1px rgb(150, 130, 16);
+}
+
+.nota_final p {
+    color: rgb(218, 148, 18);
+    font-size: 30px;
+    font-family: arial;
+    font-weight: bold;
+}
+
+.nota_final a {
+    color: white;
+    margin-top: 3em;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.caixa_nota {
+    padding: 20px;
+    background-color: rgb(170, 169, 212);
+    border: solid 5px black;
+    box-shadow: -5px 5px 1px black;
+    width: 100px;
+    margin-left: 2.7em;
+}
+
+.voltar {
+    border: solid 3px black;
+    box-shadow: -3px 3px 1px black;
+    width: 40%;
+    padding: 7px;
+    margin-top: 3em;
+    margin-left: 3.7em;
+    background-color: rgb(5, 5, 44);
 }
