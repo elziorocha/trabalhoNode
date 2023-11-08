@@ -52,6 +52,50 @@ const produtos = [
     },
 ];
 
+// função global para disparar mensagem
+function logger(req, res, next) {
+    console.log('-----------\nUsuário trocou de página')
+    next()
+}
+
+// função para autenticação
+function auth(req, res, next) {
+    if (req.query.admin === 'true') {
+        req.admin = true
+        next()
+    } else {
+        res.send('Sem Autenticação')
+    }
+}
+
+// middeware de horário de acesso de página
+app.use(logger, (req, res, next) => {
+    const currentDate = new Date();
+    console.log(`Solicitação recebida em: ${currentDate}\n-----------\n`);
+    next();
+});
+
+// middleware de autenticação na página de usuário
+function auth(req, res, next) {
+    if (req.query.admin === 'true') {
+        req.admin = true
+        next()
+    } else {
+        res.send('Sem Autenticação')
+    }
+}
+
+//página inicial
+app.get('/', (req, res) => {
+    res.send('Home')
+})
+
+app.get('/usuarios', auth, (req, res) => {
+    console.log(`Usuário admin = ${req.admin}`)
+    console.log('Página do Usuário acessada')
+    res.send('Página do Usuário autorizada')
+})
+
 // Rota inicial para exibir produtos
 app.get('/avaliar', (req, res) => {
     res.send(`
