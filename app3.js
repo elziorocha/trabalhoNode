@@ -56,8 +56,3 @@ app.post('/add', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
-
-//teste
-app.get('/teste', (req, res) => {
-    res.render('teste');
-});
