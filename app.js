@@ -8,6 +8,9 @@ const cookieParser = require('cookie-parser');
 // inicializar o express
 const app = express();
 const port = 3000;
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, './public')));
 
 // configurando os cookies
 app.use(cookieParser());
@@ -52,43 +55,50 @@ const produtos = [
 // Rota inicial para exibir produtos
 app.get('/avaliar', (req, res) => {
     res.send(`
-        <h1>Notas do Pampa's Awards</h1>
-        <h2>Arte</h2>
-        <ul>
-            ${produtos.map(
-                (produto_controle) => `<li>${produto_controle.nome} - ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
-            ).join("")}    
-        </ul>
+        <html>
+        <head>
+            <link rel="stylesheet" type="text/css" href="/style.css">
+        </head>
 
-        <h2>Música</h2>
-        <ul>
-            ${produtos.map(
-                (produto_controle) => `<li>${produto_controle.nome} - ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
-            ).join("")}    
-        </ul>
+        <div class="container_avaliar">
+            <h1>Notas do Pampa's Awards</h1>
+            <h2>Arte</h2>
+            <ul>
+                ${produtos.map(
+                    (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
+                ).join("")}    
+            </ul>
 
-        <h2>História</h2>
-        <ul>
-            ${produtos.map(
-                (produto_controle) => `<li>${produto_controle.nome} - ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
-            ).join("")}    
-        </ul>
+            <h2>Música</h2>
+            <ul>
+                ${produtos.map(
+                    (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
+                ).join("")}    
+            </ul>
 
-        <h2>Personagens</h2>
-        <ul>
-            ${produtos.map(
-                (produto_controle) => `<li>${produto_controle.nome} - ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
-            ).join("")}    
-        </ul>
+            <h2>História</h2>
+            <ul>
+                ${produtos.map(
+                    (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
+                ).join("")}    
+            </ul>
 
-        <h2>Dificuldade</h2>
-        <ul>
-            ${produtos.map(
-                (produto_controle) => `<li>${produto_controle.nome} - ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
-            ).join("")}    
-        </ul>
+            <h2>Personagens</h2>
+            <ul>
+                ${produtos.map(
+                    (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
+                ).join("")}    
+            </ul>
 
-        <a href="/carrinho">Ver nota final</a>
+            <h2>Dificuldade</h2>
+            <ul>
+                ${produtos.map(
+                    (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
+                ).join("")}    
+            </ul>
+
+            <a class="nota" href="/carrinho">Ver nota final</a>
+        </div>
     `);
 });
 

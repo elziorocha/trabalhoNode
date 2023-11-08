@@ -119,3 +119,80 @@ body {
     transition: 0.5s;
     background: rgba(107, 99, 99, 0.54);
 }
+
+/* page de avaliar */
+.container_avaliar {
+    background-color: rgb(5, 5, 44);
+    padding: 20px;
+    border-radius: 30px;
+    text-align: center;
+    height: 330vh;
+}
+
+.container_avaliar h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 55px;
+    letter-spacing: 1px;
+    padding: 10px;
+    color: rgb(219, 208, 208);
+    text-shadow: -3px 3px 1px rgb(109, 46, 109);
+    -webkit-text-stroke: 1px rgb(109, 46, 109);
+}
+
+.container_avaliar h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 45px;
+    color: rgb(219, 208, 208);
+    text-shadow: -3px 3px 1px rgb(41, 4, 100);
+    -webkit-text-stroke: 2px rgb(0, 0, 0);
+    margin: 1em 0;
+}
+
+.container_avaliar ul {
+    background-color: rgb(2, 2, 27);
+    box-shadow: -7px 7px 8px -3px rgb(180, 175, 175);
+    border: solid 3px black;
+    width: 800px;
+    border-radius: 20px;
+    padding-bottom: 40px;
+    padding-left: 75px;
+    margin-left: 11.75em;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 5em;
+}
+
+.container_avaliar li {
+    color: white;
+    margin: 2em 5em 0 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_avaliar button {
+    padding: 30px;
+    color: transparent;
+    border-radius: 8px;
+    border: solid 4px black;
+    background-color: rgb(49, 0, 128);
+    box-shadow: -4px 4px 1px 2px black;
+}
+
+.container_avaliar button:hover {
+    transition: 0.4s;
+    background-color: rgb(145, 13, 13);
+    cursor: pointer;
+}
+
+.nota {
+    padding: 20px;
+    border-radius: 10px;
+    border: solid 3px black;
+    background-color: rgb(2, 2, 27);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    text-decoration: none;
+    color: white;
+}
