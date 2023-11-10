@@ -84,12 +84,12 @@ function logger(req, res, next) {
 // função para autenticação
 function auth(req, res, next) {
     if (req.query.admin === 'true') {
-        req.admin = true
-        next()
+      req.admin = true;
+      next();
     } else {
-        res.send('Sem Autenticação')
+      res.status(403).send('Sem autorização');
     }
-}
+  }
 
 // middeware de horário de acesso de página
 app.use(logger, (req, res, next) => {
@@ -97,16 +97,6 @@ app.use(logger, (req, res, next) => {
     console.log(`Solicitação recebida em: ${currentDate}\n-----------\n`);
     next();
 });
-
-// middleware de autenticação na página de usuário
-function auth(req, res, next) {
-    if (req.query.admin === 'true') {
-        req.admin = true
-        next()
-    } else {
-        res.send('Sem Autenticação')
-    }
-}
 
 //página inicial
 app.get('/', (req, res) => {
@@ -265,3 +255,5 @@ app.get('/carrinho', (req, res) => {
 app.listen(port, () => {
     console.log(`Console iniciado na porta http://localhost:${port}`)
 });
+
+module.exports = app;
