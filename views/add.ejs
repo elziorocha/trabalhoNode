@@ -10,21 +10,23 @@
 </head>
 <body>
     
-    <h1>Adicionar nova Postagem</h1>
+    <div class="container_add">
+        <h1>Adicionar nova Postagem</h1>
 
-    <form action="/add" method="POST">
-        <label for="title">Título: </label>
-        <input type="text" name="title" id="title" required>
-        <br>
+        <form action="/add" method="POST">
+            <label for="title">Título: </label>
+            <input class="formulario" type="text" name="title" id="title" required>
+            <br>
 
-        <label for="content">Conteúdo: </label>
-        <textarea name="content" id="content" required></textarea>
-        <br>
+            <label for="content">Conteúdo: </label>
+            <input class="formulario" name="content" id="content" required></input>
+            <br>
 
-        <button type="submit">Adicionar</button>
-    </form>
+            <button type="submit">Adicionar</button>
+        </form>
 
-    <a href="/post_usuario">Voltar à lista de postagens</a>
+        <a href="/post_usuario">Voltar à lista de postagens</a>
+    </div>
 
 </body>
 </html>

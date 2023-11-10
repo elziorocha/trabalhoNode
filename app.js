@@ -179,6 +179,8 @@ app.get('/avaliar', (req, res) => {
         </head>
 
         <div class="container_avaliar">
+            <a href="/post_usuario" class="botao_volta">Voltar</a>
+            
             <h1>Notas do Pampa's Awards</h1>
             <h2>Arte</h2>
             <ul>
