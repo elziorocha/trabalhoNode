@@ -97,14 +97,14 @@ function logger(req, res, next) {
 }
 
 // função para autenticação
-function auth(req, res, next) {
+function auth2(req, res, next) {
     if (req.query.admin === 'true') {
       req.admin = true;
       next();
     } else {
       res.status(403).send('Sem autorização');
     }
-  }
+}
 
 // middeware de horário de acesso de página
 app.use(logger, (req, res, next) => {
@@ -176,6 +176,10 @@ app.get('/Sobre', (req, res) => {
 })
 
 // login
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
 app.post('/login', async (req, res) => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, req.body.email, req.body.password);
@@ -185,7 +189,6 @@ app.post('/login', async (req, res) => {
         res.send(error.message);
     }
 });
-
 
 app.get('/home', (req, res) => {
     const user = auth.currentUser;
@@ -200,13 +203,13 @@ app.get('/home', (req, res) => {
 // posts
 app.get('/post_usuario', (req, res) => {
     res.render('index', { posts });
-})
+});
 
-app.get('/usuarios', auth, (req, res) => {
+app.get('/usuarios', auth2, (req, res) => {
     console.log(`Usuário admin = ${req.admin}`)
     console.log('Página do Usuário acessada')
     res.send('Página do Usuário autorizada')
-})
+});
 
 //Rota para exibir uma postagem individual
 app.get('/post/:id', (req, res) => {
