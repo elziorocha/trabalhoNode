@@ -2,6 +2,7 @@ const express = require('express');
 const { getApps, initializeApp } = require('firebase/app');
 const { getAuth, signInWithEmailAndPassword } = require('firebase/auth');
 const app = express();
+const port = 3000;
 
 app.set('view engine', 'ejs');
 app.use(express.json());
@@ -20,8 +21,8 @@ var firebaseConfig = {
 const firebaseApp = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
 const auth = getAuth(firebaseApp);
 
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/login', (req, res) => {
+    res.render('login');
 });
 
 app.post('/login', async (req, res) => {
@@ -41,9 +42,10 @@ app.get('/home', (req, res) => {
     if (user) {
         res.render('home', { user: user });
     } else {
-        res.redirect('/');
+        res.redirect('/login');
     }
 });
 
-
-app.listen(3000, () => console.log('Server started on port 3000'));
+app.listen(port, () => {
+    console.log(`Console iniciado na porta http://localhost:${port}`)
+});

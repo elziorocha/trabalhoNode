@@ -1,26 +1,27 @@
-// importando o framework express
 const express = require('express');
-
-// importando as bibliotecas de sessão e cookies
-const session = require('express-session');
-const cookieParser = require('cookie-parser');
-
-// inicializar o express
 const app = express();
 const port = 3000;
 const path = require('path');
 const bodyParser = require('body-parser');
 
+// importando as bibliotecas de sessão e cookies
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
+const { getApps, initializeApp } = require('firebase/app');
+const { getAuth, signInWithEmailAndPassword } = require('firebase/auth');
+
+// CSS
+app.use(express.static(path.join(__dirname, './public')));
 
 // configuração do ejs para carregar as views
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // configurar o body-parser para processar os dados do form
 app.use(bodyParser.urlencoded({extended : true}));
-
-// CSS
-app.use(express.static(path.join(__dirname, './public')));
 
 // configurando os cookies
 app.use(cookieParser());
@@ -33,6 +34,20 @@ app.use(
         saveUninitialized: true, // salva sessões não inicializadas
     })
 );
+
+// firebase config
+var firebaseConfig = {
+    apiKey: "AIzaSyCebiwmgVov-Z5G4hZbhEL4IV4zwYoT9W8",
+    authDomain: "autenticacao-87c74.firebaseapp.com",
+    projectId: "autenticacao-87c74",
+    storageBucket: "autenticacao-87c74.appspot.com",
+    messagingSenderId: "778355577088",
+    appId: "1:778355577088:web:92a57ccaf3a27eb522a3e5",
+    measurementId: "G-ZXKEF3F3MR"
+};
+
+const firebaseApp = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
+const auth = getAuth(firebaseApp);
 
 const posts = [
     {
@@ -160,6 +175,29 @@ app.get('/Sobre', (req, res) => {
     `)
 })
 
+// login
+app.post('/login', async (req, res) => {
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, req.body.email, req.body.password);
+        console.log(userCredential); // Adicione esta linha
+        res.redirect('/home');
+    } catch (error) {
+        res.send(error.message);
+    }
+});
+
+
+app.get('/home', (req, res) => {
+    const user = auth.currentUser;
+    console.log(user); // Adicione esta linha
+    if (user) {
+        res.render('home', { user: user });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+// posts
 app.get('/post_usuario', (req, res) => {
     res.render('index', { posts });
 })
