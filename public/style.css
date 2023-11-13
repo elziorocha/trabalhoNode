@@ -103,6 +103,72 @@ body {
     text-shadow: -4px 4px 1px rgb(0, 0, 0);
 }
 
+/* login */
+.background_login {
+    background-color: rgb(2, 2, 36);
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_login {
+    padding: 40px;
+    background-color: rgb(8, 8, 51);
+    border: solid 3px rgb(71, 4, 71);
+}
+
+.form_login h1 {
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-shadow: -4px 4px 1px black;
+    -webkit-text-stroke: 1.5px black;
+}
+
+.form_login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_login input {
+    background-color: rgb(8, 8, 51);
+    color: whitesmoke;
+    text-shadow: -1px 1px 1px rgb(97, 89, 89);
+    padding: 5px 2px;
+    margin: 2em;
+    width: 250px;
+    height: 25px;
+    border: none;
+    font-size: 16px;
+    border-radius: 2px;
+    border-bottom: solid 4px rgb(71, 4, 71);
+}
+
+.form_login input:focus {
+    transition: 0.5s;
+    outline: none;
+    border-bottom: solid 4px rgb(224, 214, 214);
+}
+
+::placeholder {
+    color: whitesmoke;
+    padding-left: 0.5em;
+}
+
+.form_login button {
+    margin-left: 9em;
+    font-family: arial;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(71, 4, 71);
+    border: 2px solid black;
+    box-shadow: 0 3px 1px 2px black;
+    width: 80px;
+    padding: 10px;
+    cursor: pointer;
+}
+
 /* Postagens */
 #container {
     position: absolute;
