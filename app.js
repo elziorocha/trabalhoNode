@@ -304,7 +304,6 @@ app.get('/adicionar/:id', (req, res) => {
 app.get('/carrinho', (req, res) => {
     const carrinho = req.session.carrinho || [];
     const total = carrinho.reduce((acc, produto_controle) => acc + produto_controle.preco, 0);
-
     res.send(`
     <html>
     <head>
@@ -323,6 +322,29 @@ app.get('/carrinho', (req, res) => {
             </div>
         </div>
 
+    `);
+});
+
+app.get('/nota_post', (req, res) => {
+    const carrinho = req.session.carrinho || [];
+    const total = carrinho.reduce((acc, produto_controle) => acc + produto_controle.preco, 0);
+    res.cookie(`exemploCookie', ${total}, { maxAge: 900000, httpOnly: true }`);
+    res.send(`    
+    <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/style.css">
+    </head>
+
+    <div class="nota_post_container">
+
+        <div class="caixa_nota_post">
+            <p>${total}</p>
+        </div>
+
+        <div class="nota_post_voltar">
+            <a href="/post_usuario">Voltar</a>
+        </div>
+    </div>
     `);
 });
 

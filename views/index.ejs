@@ -17,6 +17,7 @@
         <ul class="postagens">
             <% posts.forEach(function(post) {%>
                 <li>
+                    <a href="/nota_post">Nota</a>
                     <a href="/post/<%= post.id %>" class="postagens2">
                         <%= post.title %>
                             <a href="/avaliar" class="avaliar">Avaliar</a>
