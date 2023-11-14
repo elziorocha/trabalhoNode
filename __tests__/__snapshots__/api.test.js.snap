@@ -33,7 +33,7 @@ exports[`GET / Deve retornar o HTML da página Home: <html>
     </head>
 
         <header class=\\"header\\">
-            <a href=\\"/\\"><h1>Nando Company</h1></a>
+            <a href=\\"/\\">Nando Company</a>
 
             <nav>
                 <a href=\\"/sobre\\">Sobre</a>
@@ -43,15 +43,7 @@ exports[`GET / Deve retornar o HTML da página Home: <html>
         </header>
 
         <div class=\\"background_home\\">
-            <div class=\\"home\\">
-                <div>
-                    <h1>Nando Games</h1>
-                </div>
 
-                <nav>
-                    <a href=\\"/post_usuario\\">Suas Postagens</a>
-                </nav>
-            </div>
         </div>
     "
 `;
@@ -88,7 +80,7 @@ exports[`GET /sobre Deve retornar o HTML da página Sobre: <html>
     </head>
 
         <header class=\\"header\\">
-            <a href=\\"/\\"><h1>Nando Company</h1></a>
+            <a href=\\"/\\">Nando Company</a>
 
             <nav>
                 <a href=\\"/sobre\\">Sobre</a>

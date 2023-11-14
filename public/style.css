@@ -4,11 +4,11 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #090a2b 10%, #11476b 79%);
+    background-color: #090a2b;
 }
 
 .header {
-    background-color: #010614;
+    background-color:#010614;
     color: #e9dcdc;
     padding: 20px;
     border-bottom: solid 3px black;
@@ -19,16 +19,20 @@ body {
 }
 
 .header h1 {
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 10px;
     text-shadow: -5px 4px 1px black;
+    font-family: monospace;
 }
 
 .header a {
-    color: white;
+    color: whitesmoke;
     text-decoration: none;
     font-size: 34px;
     margin-top: 8px;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: rgb(216, 203, 203);
 }
 
 .header nav {
@@ -38,14 +42,19 @@ body {
 
 .header nav a {
     font-family: monospace;
-    color: #fff;
+    color: whitesmoke;
     text-decoration: none;
     margin: 15px;
     font-size: 20px;
     padding: 10px;
     border-radius: 10px;
-    border: solid 2px rgb(36, 34, 34);
-    background-color: #020d14;
+    border: solid 2px rgb(0, 0, 0);
+    background-color: #010d14;
+}
+
+.header nav a:hover {
+    transition: 0.4s;
+    background-color: #020b25;
 }
 
 .home {
@@ -76,21 +85,26 @@ body {
     padding: 12px 10px;
     border: solid 3px black;
     box-shadow: -2px 2px 1px black;
-    background-color: rgb(11, 10, 56);
+    background-color: #010614;
     color: rgb(212, 199, 199);
     width: 10em;
     text-decoration: none;
 }
 
-/* Página Sobre */
+.home a:hover {
+    transition: 0.6s;
+    transform: translateY(-10px);
+    background-color: rgb(2, 35, 58);
+}
 
+/* Página Sobre */
 .caixa_sobre {
     margin-top: 5em;
     margin-left: 23.5%;
     padding: 20px;
     text-align: center;
     color: rgb(238, 229, 229);
-    background-color: rgb(7, 7, 63);
+    background-color: #010614;
     border: solid 2px black;
     box-shadow: 0 5px 4px 2px black;
     border-radius: 10px;
@@ -146,8 +160,8 @@ body {
     margin: 2em;
     width: 250px;
     height: 25px;
-    border: none;
     font-size: 16px;
+    border: 0px;
     border-radius: 2px;
     border-bottom: solid 4px rgb(71, 4, 71);
 }
@@ -156,6 +170,10 @@ body {
     transition: 0.5s;
     outline: none;
     border-bottom: solid 4px rgb(224, 214, 214);
+}
+
+.form_login textarea {
+    background-color: rgb(8, 8, 51);
 }
 
 ::placeholder {
@@ -197,17 +215,13 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.background_posts {
-    padding: 0.1px;
-}
-
 .postagens {
-    background: rgba(152, 156, 219, 0.46);
+    background: rgba(2, 7, 73, 0.46);
     border-radius: 8px;
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(8.3px);
     -webkit-backdrop-filter: blur(8.3px);
-    border: 3px solid rgba(131, 120, 120, 0.43);
+    border: 2.5px solid rgba(131, 120, 120, 0.43);
     margin-bottom: 2em;
 }
 
@@ -222,32 +236,34 @@ body {
     font-family: arial;
     color: white;
     text-decoration: none;
-    background-color: rgb(34, 47, 107);
+    background-color: rgb(11, 19, 53);
     border-radius: 8px;
     padding: 15px;
 }
 
 .postagens2:hover {
-    background: linear-gradient(90deg, rgb(32, 32, 71) 15%, rgb(161, 46, 46) 50%, rgb(32, 32, 71) 90%);
+    transition: 0.3s;
+    background-color: rgb(14, 26, 78);
 }
 
 .avaliar {
     border: solid 2px black;
     margin-left: 1em;
     padding: 10px;
-    background-color: rgb(34, 47, 107);
+    background-color: rgb(11, 19, 53);
     color: white;
     border-radius: 8px;
     text-decoration: none;
 }
 
 .avaliar:hover {
-    background: linear-gradient(90deg, rgb(32, 32, 71) 15%, rgb(161, 46, 46) 50%, rgb(32, 32, 71) 90%);
+    transition: 0.3s;
+    background-color: rgb(14, 26, 78);
 }
 
 .adicionar {
     text-decoration: none;
-    background-color: rgb(3, 33, 61);
+    background-color: rgb(11, 19, 53);
     border: solid 3px black;
     color: antiquewhite;
     text-shadow: -2px 2px 1px black;
@@ -402,7 +418,7 @@ body {
 .container_avaliar {
     background-color: rgb(5, 5, 44);
     padding: 20px;
-    height: 350vh;
+    height: 375vh;
 }
 
 .botao_volta {
@@ -415,46 +431,57 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 36px;
     text-decoration: none;
+    position: absolute;
+    margin: 0.5em 1em;
+}
+
+.botao_volta:hover {
+    transition: 0.3s;
+    background-color: rgb(4, 20, 54);
 }
 
 .container_avaliar h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 65px;
     padding: 10px;
-    color: rgb(219, 208, 208);
-    text-shadow: -4px 4px 1px rgb(165, 123, 17);
+    color: rgb(204, 188, 188);
+    text-shadow: -5px 5px 1px rgb(0, 0, 0);
     -webkit-text-stroke: 2px rgb(0, 0, 0);
     margin-top: 0.5em;
     text-align: center;
 }
 
-.container_avaliar h2 {
+.avaliar_caixa {
+    background-color: rgb(2, 2, 27);
+    box-shadow: 0 7px 20px 10px black;
+    border: solid 3px black;
+    width: 900px;
+    margin-left: 11.5em;
+    margin-top: 2em;
+    margin-bottom: 5.5em;
+}
+
+.avaliar_caixa h2 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 50px;
     color: rgb(219, 208, 208);
     text-shadow: -6px 4px 1px rgb(0, 0, 0);
     -webkit-text-stroke: 2px black;
-    margin: 1em 0;
+    margin: 0.5em 0;
     text-align: center;
 }
 
-.container_avaliar ul {
-    background-color: rgb(2, 2, 27);
-    box-shadow: 0 7px 20px 10px black;
-    border: solid 3px black;
-    width: 800px;
-    border-radius: 20px;
-    padding-bottom: 40px;
-    padding-left: 75px;
-    margin-left: 11.75em;
+.avaliar_caixa ul {
     list-style-type: none;
+    padding-left: 65px;
+    margin-bottom: 5em;
+    margin-top: -10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 5em;
 }
 
-.container_avaliar li {
+.avaliar_caixa li {
     color: white;
     margin: 2em 4.5em 0 1em;
     display: flex;
@@ -463,15 +490,15 @@ body {
     font-size: 16px;
 }
 
-.container_avaliar button {
-    padding: 30px;
+.avaliar_caixa button {
+    padding: 38px;
     color: transparent;
     border-radius: 10px;
     border: solid 6px black;
-    background-color: rgb(49, 0, 128);
+    background-color: rgb(39, 7, 90);
 }
 
-.container_avaliar button:hover {
+.avaliar_caixa button:hover {
     transition: 0.4s;
     background-color: rgb(145, 13, 13);
     cursor: pointer;
@@ -490,17 +517,23 @@ body {
     color: white;
 }
 
+.nota:hover {
+    transition: 0.3s;
+    background-color: rgb(4, 20, 54);
+}
+
 /* Nota Final */
 
 .nota_final {
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: rgb(13, 13, 61);
+    background-color: rgb(5, 5, 36);
     width: 600px;
     padding: 20px;
     border-radius: 30px;
     text-align: center;
+    border: solid 2px black;
     box-shadow: 0 8px 30px 10px black,
         0 0 1px 350px rgb(5, 5, 44);
     margin-top: 8em;
@@ -512,14 +545,13 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     letter-spacing: 2px;
     color: rgb(219, 208, 208);
-    text-shadow: -3px 3px 1px rgb(165, 123, 17);
-    -webkit-text-stroke: 1px rgb(165, 123, 17);
-    ;
+    text-shadow: -4px 4px 1px rgb(0, 0, 0);
+    -webkit-text-stroke: 1.75px rgb(0, 0, 0);
 }
 
 .caixa_nota {
     padding: 20px;
-    background-color: rgb(196, 196, 219);
+    background-color: rgb(138, 138, 160);
     border: solid 5px black;
     box-shadow: 0 5px 1px 2px black;
     width: 100px;
@@ -552,4 +584,9 @@ body {
     margin-top: 3em;
     margin-left: 3.7em;
     background-color: rgb(5, 5, 44);
+}
+
+.voltar:hover {
+    transition: 0.3s;
+    background-color: rgb(4, 20, 54);
 }

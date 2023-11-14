@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/style.css">
-    
+
     <title>Blog</title>
 
 </head>
 <body>
 
-    <div class="background_posts">
-        <div id="container">
-            <h1 class="titulo">Seus Posts</h1>
+    <div id="container">
+        <h1 class="titulo">Seus Posts</h1>
 
-            <ul class="postagens">    
-                <% posts.forEach(function(post) {%>
-                    <li>    
-                        <a href="/post/<%= post.id %>" class="postagens2">
-                            <%= post.title %>
+        <ul class="postagens">
+            <% posts.forEach(function(post) {%>
+                <li>
+                    <a href="/post/<%= post.id %>" class="postagens2">
+                        <%= post.title %>
                             <a href="/avaliar" class="avaliar">Avaliar</a>
-                        </a>
-                    </li>
+                    </a>
+                </li>
                 <% }); %>
-            </ul>
-            <a class="adicionar" href="/add">Adicionar nova postagem</a>
-            <a class="adicionar" href="/">Voltar</a>
-        </div>
+        </ul>
+        <a class="adicionar" href="/add">Adicionar nova postagem</a>
+        <a class="adicionar" href="/">Voltar</a>
     </div>
 
 </body>

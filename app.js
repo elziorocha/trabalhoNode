@@ -235,40 +235,51 @@ app.get('/avaliar', (req, res) => {
             <a href="/post_usuario" class="botao_volta">Voltar</a>
             
             <h1>Notas do Pampa's Awards</h1>
-            <h2>Arte</h2>
-            <ul>
-                ${produtos.map(
-                    (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
-                ).join("")}    
-            </ul>
 
-            <h2>Música</h2>
-            <ul>
-                ${produtos.map(
-                    (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
-                ).join("")}    
-            </ul>
+            <div class="avaliar_caixa">
+                <h2>Arte</h2>
+                <ul>
+                    ${produtos.map(
+                        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
+                    ).join("")}    
+                </ul>
+            </div>
 
-            <h2>História</h2>
-            <ul>
-                ${produtos.map(
-                    (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
-                ).join("")}    
-            </ul>
+            <div class="avaliar_caixa">
+                <h2>Música</h2>
+                <ul>
+                    ${produtos.map(
+                        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
+                    ).join("")}    
+                </ul>
+            </div>
 
-            <h2>Personagens</h2>
-            <ul>
-                ${produtos.map(
-                    (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
-                ).join("")}    
-            </ul>
+            <div class="avaliar_caixa">
+                <h2>História</h2>
+                <ul>
+                    ${produtos.map(
+                        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
+                    ).join("")}    
+                </ul>
+            </div>
 
-            <h2>Dificuldade</h2>
-            <ul>
-                ${produtos.map(
-                    (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button>.</button></a></li>`
-                ).join("")}    
-            </ul>
+            <div class="avaliar_caixa">
+                <h2>Personagens</h2>
+                <ul>
+                    ${produtos.map(
+                        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
+                    ).join("")}    
+                </ul>
+            </div>
+
+            <div class="avaliar_caixa">
+                <h2>Dificuldade</h2>
+                <ul>
+                    ${produtos.map(
+                        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
+                    ).join("")}    
+                </ul>
+            </div>
 
             <a class="nota" href="/carrinho">Ver nota final</a>
         </div>
