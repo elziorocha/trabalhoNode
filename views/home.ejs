@@ -8,8 +8,29 @@
     <title>Home</title>
 </head>
 <body>
+
+    <header class="header">
+        <a href="/">Nando Company</a>
     
-    <h1>Bem-vindo, <%= user.email %>!</h1>
+        <h1>Bem-vindo, <%= user.email %>!</h1>
+        <nav>
+            <a href="/sobre">Sobre</a>
+            <a href="/contato">Contato</a>
+            <a href="/login">Login</a>
+        </nav>
+    </header>
+
+    <div class="background_home">
+        <div class="home">
+            <div>
+                <h1>Nando Games</h1>
+            </div>
+
+            <nav>
+                <a href="/post_usuario">Suas Postagens</a>
+            </nav>
+        </div>
+    </div>
     
 </body>
 </html>

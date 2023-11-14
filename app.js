@@ -122,7 +122,7 @@ app.get('/', (req, res) => {
     </head>
 
         <header class="header">
-            <a href="/"><h1>Nando Company</h1></a>
+            <a href="/">Nando Company</a>
 
             <nav>
                 <a href="/sobre">Sobre</a>
@@ -132,15 +132,7 @@ app.get('/', (req, res) => {
         </header>
 
         <div class="background_home">
-            <div class="home">
-                <div>
-                    <h1>Nando Games</h1>
-                </div>
 
-                <nav>
-                    <a href="/post_usuario">Suas Postagens</a>
-                </nav>
-            </div>
         </div>
     `)
 })
@@ -153,7 +145,7 @@ app.get('/Sobre', (req, res) => {
     </head>
 
         <header class="header">
-            <a href="/"><h1>Nando Company</h1></a>
+            <a href="/">Nando Company</a>
 
             <nav>
                 <a href="/sobre">Sobre</a>

@@ -12,28 +12,35 @@ body {
     color: #e9dcdc;
     padding: 20px;
     border-bottom: solid 3px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 70px;
 }
 
 .header h1 {
     margin-top: 10px;
+    margin-left: 10px;
     text-shadow: -5px 4px 1px black;
 }
 
 .header a {
     color: white;
     text-decoration: none;
+    font-size: 34px;
+    margin-top: 8px;
 }
 
 .header nav {
     text-align: right;
-    margin: -1.5em 5em 1em 0;
+    margin: 1em 5em 1em 0;
 }
 
 .header nav a {
     font-family: monospace;
     color: #fff;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 15px;
     font-size: 20px;
     padding: 10px;
     border-radius: 10px;
