@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const path = require('path');
 const bodyParser = require('body-parser');
+const axios = require('axios');
 
 // importando as bibliotecas de sessão e cookies
 const session = require('express-session');
@@ -10,6 +11,10 @@ const cookieParser = require('cookie-parser');
 
 const { getApps, initializeApp } = require('firebase/app');
 const { getAuth, signInWithEmailAndPassword } = require('firebase/auth');
+
+// API
+const apiKey = 'aa42c1f1a42141e4b290ae340ac265f2';
+const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}`;
 
 // CSS
 app.use(express.static(path.join(__dirname, './public')));
@@ -119,12 +124,14 @@ app.get('/', (req, res) => {
     <html>
     <head>
         <link rel="stylesheet" type="text/css" href="/style.css">
+
     </head>
 
         <header class="header">
             <a href="/">Nando Company</a>
 
             <nav>
+                <a href="/listaJogos">Jogos</a>
                 <a href="/sobre">Sobre</a>
                 <a href="/contato">Contato</a>
                 <a href="/login">Login</a>
@@ -132,7 +139,14 @@ app.get('/', (req, res) => {
         </header>
 
         <div class="background_home">
-
+            <div class="texto_home">
+                <h2>Seja Bem-Vindo(a)</h2>
+                <p>Encontre seus jogos favoritos entre uma vasta biblioteca de
+                500.000+ jogos e demos para adquirir, jogar e avaliar!</p>
+                <p>Se junte a Nando Company e obtenha ofertas exclusivas para assinantes e colaboradores,
+                 conecte-se e se junte a maior rede de entreterimento do mundo!</p>
+                <a href="/login">Login</a>
+            </div>
         </div>
     `)
 })
@@ -148,6 +162,7 @@ app.get('/Sobre', (req, res) => {
             <a href="/">Nando Company</a>
 
             <nav>
+                <a href="/listaJogos">Jogos</a>
                 <a href="/sobre">Sobre</a>
                 <a href="/contato">Contato</a>
                 <a href="/login">Login</a>
@@ -166,6 +181,47 @@ app.get('/Sobre', (req, res) => {
         </div>
     `)
 })
+
+// Página da API
+app.get('/listaJogos', (req, res) => {
+    axios.get(apiUrl)
+      .then(response => {
+        const games = response.data.results;
+  
+        if (games.length > 0) {
+          const gameListHTML = games.map(game => `
+            <div>
+              <h2>${game.name}</h2>
+              <img src="${game.background_image}" alt="${game.name}" style="max-width: 300px;">
+              <p>Data de Lançamento: ${game.released}</p>
+              <p>Desenvolvedora: ${game.developers && game.developers.length > 0 ? game.developers[0].name : 'Não disponível'}</p>
+              <p>Classificação: ${game.rating || 'Não disponível'}</p>
+              <p>Descrição: ${game.description || 'Não disponível'}</p>
+              <hr>
+            </div>
+          `).join('');
+  
+          res.send(`
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <title>Lista de Jogos</title>
+              </head>
+              <body>
+                <h1>Lista de Jogos</h1>
+                ${gameListHTML}
+              </body>
+            </html>
+          `);
+        } else {
+          res.send(`<p>Nenhum jogo encontrado com o título "${gameTitle}".</p>`);
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao buscar informações do jogo:', error.message);
+        res.status(500).send('Erro ao buscar informações do jogo.');
+      });
+  });
 
 // login
 app.get('/login', (req, res) => {

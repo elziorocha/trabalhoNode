@@ -4,14 +4,17 @@
 }
 
 body {
-    background-color: #090a2b;
+    background-image: url('https://images8.alphacoders.com/617/617304.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
 }
 
 .header {
     background-color:#010614;
     color: #e9dcdc;
     padding: 20px;
-    border-bottom: solid 3px black;
+    border-bottom: solid 5px black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -29,15 +32,12 @@ body {
     color: whitesmoke;
     text-decoration: none;
     font-size: 34px;
-    margin-top: 8px;
-    text-decoration: underline;
-    text-decoration-thickness: 1.5px;
-    text-decoration-color: rgb(216, 203, 203);
+    margin-top: 10px;
 }
 
 .header nav {
     text-align: right;
-    margin: 1em 5em 1em 0;
+    margin: 1.5em 5em 1em 0;
 }
 
 .header nav a {
@@ -95,6 +95,58 @@ body {
     transition: 0.6s;
     transform: translateY(-10px);
     background-color: rgb(2, 35, 58);
+}
+
+.background_home {
+    background: linear-gradient(to right,
+    rgb(0 0 0 / 0.7) 30%,
+    rgb( 0 0 0 / 0));
+    height: 81.5vh;
+}
+
+.texto_home {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    max-width: 390px;
+}
+
+.texto_home h2 {
+    text-align: left;
+    color: rgb(223, 211, 211);
+    margin-bottom: 0.75em;
+    font-size: 36px;
+    text-shadow: -3px 3px 1px black;
+}
+
+.texto_home p {
+    text-align: justify;
+    font-size: 16px;
+    color: rgb(223, 211, 211);
+    text-shadow: -3px 3px 1px black;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.texto_home a {
+    position: absolute;
+    left: 23%;
+    top: 120%;
+    width: 150px;
+    background-color: rgb(7, 7, 63);
+    border: solid 3px black;
+    color: rgb(223, 211, 211);
+    box-shadow: 0 0 5px 1px black;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.texto_home a:hover {
+    transition: 0.3s;
+    background-color: rgb(8, 8, 85);
 }
 
 /* Página Sobre */
