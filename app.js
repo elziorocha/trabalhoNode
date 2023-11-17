@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // configurar o body-parser para processar os dados do form
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // configurando os cookies
 app.use(cookieParser());
@@ -104,10 +104,10 @@ function logger(req, res, next) {
 // função para autenticação
 function auth2(req, res, next) {
     if (req.query.admin === 'true') {
-      req.admin = true;
-      next();
+        req.admin = true;
+        next();
     } else {
-      res.status(403).send('Sem autorização');
+        res.status(403).send('Sem autorização');
     }
 }
 
@@ -128,7 +128,7 @@ app.get('/', (req, res) => {
     </head>
 
         <header class="header">
-            <a href="/">Nando Company</a>
+            <a href="/home">Nando Company</a>
 
             <nav>
                 <a href="/listaJogos">Jogos</a>
@@ -185,43 +185,56 @@ app.get('/Sobre', (req, res) => {
 // Página da API
 app.get('/listaJogos', (req, res) => {
     axios.get(apiUrl)
-      .then(response => {
-        const games = response.data.results;
-  
-        if (games.length > 0) {
-          const gameListHTML = games.map(game => `
-            <div>
+        .then(response => {
+            const games = response.data.results;
+
+            if (games.length > 0) {
+                const gameListHTML = games.map(game => `
+            <div class="api">
               <h2>${game.name}</h2>
               <img src="${game.background_image}" alt="${game.name}" style="max-width: 300px;">
               <p>Data de Lançamento: ${game.released}</p>
               <p>Desenvolvedora: ${game.developers && game.developers.length > 0 ? game.developers[0].name : 'Não disponível'}</p>
               <p>Classificação: ${game.rating || 'Não disponível'}</p>
               <p>Descrição: ${game.description || 'Não disponível'}</p>
-              <hr>
             </div>
           `).join('');
-  
-          res.send(`
+
+                res.send(`
             <!DOCTYPE html>
             <html>
               <head>
+                <link rel="stylesheet" type="text/css" href="/style.css">
                 <title>Lista de Jogos</title>
               </head>
               <body>
-                <h1>Lista de Jogos</h1>
-                ${gameListHTML}
+
+                <header class="header">
+                    <a href="/">Nando Company</a>
+        
+                    <nav>
+                        <a href="/listaJogos">Jogos</a>
+                        <a href="/sobre">Sobre</a>
+                        <a href="/contato">Contato</a>
+                        <a href="/login">Login</a>
+                    </nav>
+                </header>
+
+                <div class="container_jogos">
+                    ${gameListHTML}
+                </div>
               </body>
             </html>
           `);
-        } else {
-          res.send(`<p>Nenhum jogo encontrado com o título "${gameTitle}".</p>`);
-        }
-      })
-      .catch(error => {
-        console.error('Erro ao buscar informações do jogo:', error.message);
-        res.status(500).send('Erro ao buscar informações do jogo.');
-      });
-  });
+            } else {
+                res.send(`<p>Nenhum jogo encontrado com o título "${gameTitle}".</p>`);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao buscar informações do jogo:', error.message);
+            res.status(500).send('Erro ao buscar informações do jogo.');
+        });
+});
 
 // login
 app.get('/login', (req, res) => {
@@ -275,7 +288,7 @@ app.get('/add', (req, res) => {
 app.post('/add', (req, res) => {
     const { title, content } = req.body;
     const id = posts.length + 1;
-    posts.push({id, title, content});
+    posts.push({ id, title, content });
     res.redirect('/');
 });
 
@@ -296,8 +309,8 @@ app.get('/avaliar', (req, res) => {
                 <h2>Arte</h2>
                 <ul>
                     ${produtos.map(
-                        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
-                    ).join("")}    
+        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
+    ).join("")}    
                 </ul>
             </div>
 
@@ -305,8 +318,8 @@ app.get('/avaliar', (req, res) => {
                 <h2>Música</h2>
                 <ul>
                     ${produtos.map(
-                        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
-                    ).join("")}    
+        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
+    ).join("")}    
                 </ul>
             </div>
 
@@ -314,8 +327,8 @@ app.get('/avaliar', (req, res) => {
                 <h2>História</h2>
                 <ul>
                     ${produtos.map(
-                        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
-                    ).join("")}    
+        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
+    ).join("")}    
                 </ul>
             </div>
 
@@ -323,8 +336,8 @@ app.get('/avaliar', (req, res) => {
                 <h2>Personagens</h2>
                 <ul>
                     ${produtos.map(
-                        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
-                    ).join("")}    
+        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
+    ).join("")}    
                 </ul>
             </div>
 
@@ -332,8 +345,8 @@ app.get('/avaliar', (req, res) => {
                 <h2>Dificuldade</h2>
                 <ul>
                     ${produtos.map(
-                        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
-                    ).join("")}    
+        (produto_controle) => `<li>${produto_controle.nome} ${produto_controle.preco} <a href="/adicionar/${produto_controle.id}"><button></button></a></li>`
+    ).join("")}    
                 </ul>
             </div>
 
@@ -347,8 +360,8 @@ app.get('/adicionar/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const produto_controle = produtos.find((p) => p.id === id);
 
-    if(produto_controle){
-        if(!req.session.carrinho){
+    if (produto_controle) {
+        if (!req.session.carrinho) {
             req.session.carrinho = [];
         }
         req.session.carrinho.push(produto_controle);
