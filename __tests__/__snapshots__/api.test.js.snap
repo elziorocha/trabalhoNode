@@ -30,12 +30,14 @@ exports[`GET / Deve retornar o HTML da página Home: <html>
     <html>
     <head>
         <link rel=\\"stylesheet\\" type=\\"text/css\\" href=\\"/style.css\\">
+
     </head>
 
         <header class=\\"header\\">
-            <a href=\\"/\\">Nando Company</a>
+            <a href=\\"/home\\">Nando Company</a>
 
             <nav>
+                <a href=\\"/listaJogos\\">Jogos</a>
                 <a href=\\"/sobre\\">Sobre</a>
                 <a href=\\"/contato\\">Contato</a>
                 <a href=\\"/login\\">Login</a>
@@ -43,7 +45,14 @@ exports[`GET / Deve retornar o HTML da página Home: <html>
         </header>
 
         <div class=\\"background_home\\">
-
+            <div class=\\"texto_home\\">
+                <h2>Seja Bem-Vindo(a)</h2>
+                <p>Encontre seus jogos favoritos entre uma vasta biblioteca de
+                500.000+ jogos e demos para adquirir, jogar e avaliar!</p>
+                <p>Se junte a Nando Company e obtenha ofertas exclusivas para assinantes e colaboradores,
+                 conecte-se e se junte a maior rede de entreterimento do mundo!</p>
+                <a href=\\"/login\\">Login</a>
+            </div>
         </div>
     "
 `;
@@ -83,6 +92,7 @@ exports[`GET /sobre Deve retornar o HTML da página Sobre: <html>
             <a href=\\"/\\">Nando Company</a>
 
             <nav>
+                <a href=\\"/listaJogos\\">Jogos</a>
                 <a href=\\"/sobre\\">Sobre</a>
                 <a href=\\"/contato\\">Contato</a>
                 <a href=\\"/login\\">Login</a>

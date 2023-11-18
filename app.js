@@ -128,7 +128,7 @@ app.get('/', (req, res) => {
     </head>
 
         <header class="header">
-            <a href="/home">Nando Company</a>
+            <a href="/home?admin=true">Nando Company</a>
 
             <nav>
                 <a href="/listaJogos">Jogos</a>
@@ -244,32 +244,29 @@ app.get('/login', (req, res) => {
 app.post('/login', async (req, res) => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, req.body.email, req.body.password);
-        console.log(userCredential); // Adicione esta linha
-        res.redirect('/home');
+        console.log(userCredential);
+        res.redirect('/home?admin=true');
     } catch (error) {
         res.send(error.message);
     }
 });
 
-app.get('/home', (req, res) => {
+app.get('/home', auth2, (req, res) => {
     const user = auth.currentUser;
-    console.log(user); // Adicione esta linha
+    console.log(user);
     if (user) {
+        console.log(`Usuário admin = ${req.admin}`)
+        console.log('Página do Usuário acessada')
         res.render('home', { user: user });
     } else {
         res.redirect('/login');
+        console.log('Sem autorização')
     }
 });
 
 // posts
 app.get('/post_usuario', (req, res) => {
     res.render('index', { posts });
-});
-
-app.get('/usuarios', auth2, (req, res) => {
-    console.log(`Usuário admin = ${req.admin}`)
-    console.log('Página do Usuário acessada')
-    res.send('Página do Usuário autorizada')
 });
 
 //Rota para exibir uma postagem individual
