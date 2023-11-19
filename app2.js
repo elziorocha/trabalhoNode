@@ -1,19 +1,21 @@
-const request = require('supertest');
-const app = require('../app2');
+const express = require('express');
+const app = express();
+const port = 3000;
 
-describe('GET /', () => {
-    test('Deve retornar o HTML da página Inicial', async () => {
-        const response = await request(app).get('/');
-        expect(response.status).toBe(200);
-        expect(response.text).toMatchSnapshot(`<html>
+//página inicial
+app.get('/', (req, res) => {
+    res.send(`
+    <html>
     <head>
         <link rel="stylesheet" type="text/css" href="/style.css">
+
     </head>
 
         <header class="header">
-            <a href="/"><h1>Nando Company</h1></a>
+            <a href="/home?admin=true">Nando Company</a>
 
             <nav>
+                <a href="/listaJogos">Jogos</a>
                 <a href="/sobre">Sobre</a>
                 <a href="/contato">Contato</a>
                 <a href="/login">Login</a>
@@ -21,32 +23,30 @@ describe('GET /', () => {
         </header>
 
         <div class="background_home">
-            <div class="home">
-                <div>
-                    <h1>Nando Games</h1>
-                </div>
-
-                <nav>
-                    <a href="/post_usuario">Suas Postagens</a>
-                </nav>
+            <div class="texto_home">
+                <h2>Seja Bem-Vindo(a)</h2>
+                <p>Encontre seus jogos favoritos entre uma vasta biblioteca de
+                500.000+ jogos e demos para adquirir, jogar e avaliar!</p>
+                <p>Se junte a Nando Company e obtenha ofertas exclusivas para assinantes e colaboradores,
+                 conecte-se e se junte a maior rede de entreterimento do mundo!</p>
+                <a href="/login">Login</a>
             </div>
-        </div>`);
-    });
-});
+        </div>
+    `)
+})
 
-describe('GET /sobre', () => {
-    test('Deve retornar o HTML da página Sobre', async () => {
-        const response = await request(app).get('/sobre');
-        expect(response.status).toBe(200);
-        expect(response.text).toMatchSnapshot(`<html>
+app.get('/Sobre', (req, res) => {
+    res.send(`
+    <html>
     <head>
         <link rel="stylesheet" type="text/css" href="/style.css">
     </head>
 
         <header class="header">
-            <a href="/"><h1>Nando Company</h1></a>
+            <a href="/">Nando Company</a>
 
             <nav>
+                <a href="/listaJogos">Jogos</a>
                 <a href="/sobre">Sobre</a>
                 <a href="/contato">Contato</a>
                 <a href="/login">Login</a>
@@ -62,6 +62,12 @@ describe('GET /sobre', () => {
         <div class="caixa_sobre">
             <p>O Website foi lançado em 2023, reunindo primeiramente uma coletânea de jogos para
             usuários avaliar suas experiências durante a jogatina.</p>
-        </div>`);
-    });
+        </div>
+    `)
+})
+
+app.listen(port, () => {
+    console.log(`Console iniciado na porta http://localhost:${port}`)
 });
+
+module.exports = app;

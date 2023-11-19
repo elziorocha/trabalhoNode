@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GET / Deve retornar o HTML da página Home: <html>
+exports[`GET / Deve retornar o HTML da página Inicial: <html>
     <head>
         <link rel="stylesheet" type="text/css" href="/style.css">
     </head>
@@ -34,7 +34,7 @@ exports[`GET / Deve retornar o HTML da página Home: <html>
     </head>
 
         <header class=\\"header\\">
-            <a href=\\"/home\\">Nando Company</a>
+            <a href=\\"/home?admin=true\\">Nando Company</a>
 
             <nav>
                 <a href=\\"/listaJogos\\">Jogos</a>

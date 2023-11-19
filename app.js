@@ -151,6 +151,7 @@ app.get('/', (req, res) => {
     `)
 })
 
+// Página Sobre
 app.get('/Sobre', (req, res) => {
     res.send(`
     <html>
@@ -251,6 +252,7 @@ app.post('/login', async (req, res) => {
     }
 });
 
+// Home com o usuário logado
 app.get('/home', auth2, (req, res) => {
     const user = auth.currentUser;
     console.log(user);
@@ -264,7 +266,7 @@ app.get('/home', auth2, (req, res) => {
     }
 });
 
-// posts
+// Posts
 app.get('/post_usuario', (req, res) => {
     res.render('index', { posts });
 });
@@ -286,7 +288,7 @@ app.post('/add', (req, res) => {
     const { title, content } = req.body;
     const id = posts.length + 1;
     posts.push({ id, title, content });
-    res.redirect('/');
+    res.redirect('/post_usuario');
 });
 
 // Rota inicial para exibir produtos
