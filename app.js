@@ -109,7 +109,7 @@ function auth2(req, res, next) {
     } else {
         res.status(403).send('Sem autorização');
     }
-}
+}   
 
 // middeware de horário de acesso de página
 app.use(logger, (req, res, next) => {

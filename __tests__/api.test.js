@@ -5,7 +5,7 @@ describe('GET /', () => {
     test('Deve retornar o HTML da página Inicial', async () => {
         const response = await request(app).get('/');
         expect(response.status).toBe(200);
-        expect(response.text).toMatchSnapshot(`<html>
+        expect(response.text).toBe(`<html>
     <head>
         <link rel="stylesheet" type="text/css" href="/style.css">
     </head>
