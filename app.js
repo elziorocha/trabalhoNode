@@ -406,7 +406,7 @@ app.get('/nota_post', (req, res) => {
     <div class="nota_post_container">
 
         <div class="caixa_nota_post">
-            <p>${total}</p>
+            <p>${total/5}</p>
         </div>
 
         <div class="nota_post_voltar">
