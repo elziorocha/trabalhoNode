@@ -109,7 +109,7 @@ function auth2(req, res, next) {
     } else {
         res.status(403).send('Sem autorização');
     }
-}   
+}
 
 // middeware de horário de acesso de página
 app.use(logger, (req, res, next) => {
@@ -127,16 +127,18 @@ app.get('/', (req, res) => {
 
     </head>
 
-        <header class="header">
-            <a href="/home?admin=true">Nando Company</a>
+    <header class="header">
+        <a href="/home?admin=true">Nando Company</a>
 
-            <nav>
-                <a href="/listaJogos">Jogos</a>
-                <a href="/sobre">Sobre</a>
-                <a href="/contato">Contato</a>
-                <a href="/login">Login</a>
-            </nav>
-        </header>
+        <div class="menu-icon" onclick="toggleNav()">☰</div>
+
+        <nav>
+            <a href="/listaJogos">Jogos</a>
+            <a href="/sobre">Sobre</a>
+            <a href="/contato">Contato</a>
+            <a href="/login">Login</a>
+        </nav>
+    </header>
 
         <div class="background_home">
             <div class="texto_home">
@@ -144,13 +146,17 @@ app.get('/', (req, res) => {
                 <p>Encontre seus jogos favoritos entre uma vasta biblioteca de
                 500.000+ jogos e demos para adquirir, jogar e avaliar!</p>
                 <p>Se junte a Nando Company e obtenha ofertas exclusivas para assinantes e colaboradores,
-                 conecte-se e se junte a maior rede de entreterimento do mundo!</p>
+                conecte-se e se junte a maior rede de entreterimento do mundo!</p>
                 <a href="/login">Login</a>
             </div>
         </div>
     `)
 })
 
+function toggleNav() {
+    const nav = document.querySelector('.header nav');
+    nav.style.display = (nav.style.display === 'flex' || nav.style.display === '') ? 'none' : 'flex';
+}
 // Página Sobre
 app.get('/Sobre', (req, res) => {
     res.send(`
@@ -406,7 +412,7 @@ app.get('/nota_post', (req, res) => {
     <div class="nota_post_container">
 
         <div class="caixa_nota_post">
-            <p>${total/5}</p>
+            <p>${total / 5}</p>
         </div>
 
         <div class="nota_post_voltar">

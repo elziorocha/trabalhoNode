@@ -8,6 +8,7 @@ body {
     height: 100vh;
     background-size: cover;
     background-position: center;
+    margin: 0;
 }
 
 .header {
@@ -55,6 +56,27 @@ body {
 .header nav a:hover {
     transition: 0.4s;
     background-color: #020b25;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+    .header {
+        height: 140px;
+    }
+
+    .header a {
+        margin-top: 20px;
+        font-size: 48px;
+    }
+
+    .header nav {
+        display: flex;
+        margin-top: 30px;
+        margin-left: 50px;
+    }
+
+    .header nav a {
+        font-size: 40px;
+    }
 }
 
 .home h1 {
@@ -145,6 +167,32 @@ body {
     background-color: rgb(8, 8, 85);
 }
 
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+    .background_home {
+        height: 91vh;
+    }
+
+    .texto_home {
+        margin-right: 10%;
+        max-width: 900px;
+    }
+
+    .texto_home h2 {
+        text-align: center;
+        font-size: 80px;
+    }
+
+    .texto_home p {
+        font-size: 46px;
+    }
+
+    .texto_home a {
+        padding: 25px 35px;
+        font-size: 50px;
+        left: 38%;
+    }
+}
+
 /* Página Sobre */
 .caixa_sobre {
     margin-top: 5em;
@@ -170,6 +218,23 @@ body {
 .caixa_sobre p {
     font-size: 18px;
     text-shadow: -4px 4px 1px rgb(0, 0, 0);
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+    .caixa_sobre {
+        margin-top: 150px;
+        margin-left: 13%;
+        padding: 40px;
+    }
+
+    .caixa_sobre h2 {
+        font-size: 52px;
+    }
+
+    .caixa_sobre p {
+        text-align: justify;
+        font-size: 40px;
+    }
 }
 
 /* login */
@@ -281,6 +346,31 @@ body {
     margin: 0.3em;
 }
 
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+    .api {
+        width: 100%;
+        margin-left: 0;
+        height: 120%;
+    }
+
+    .api h2 {
+        font-size: 40px;
+        margin-top: 5px;
+    }
+
+    .api p {
+        text-align: center;
+        font-size: 36px;
+    }
+
+    .api img {
+        min-width: 450px;
+        height: 300px;
+        width: 450px;
+        margin-left: 27%;
+    }
+}
+
 /* Postagens */
 #container {
     position: absolute;
@@ -351,6 +441,37 @@ body {
     background-color: rgb(14, 26, 78);
 }
 
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+    #container {
+        left: -3%;
+    }
+
+    .titulo {
+        width: 100%;
+        font-size: 36px;
+        margin-left: 35px;
+        -webkit-text-stroke: 0;
+    }
+
+    .postagens {
+        width: 410px;
+        padding: auto;
+        margin-left: 20px;
+    }
+
+    .postagens a {
+        padding: 10px;
+        margin: 10px 10px;
+        margin-right: 0;
+    }
+
+    .postagens li {
+        margin: 3em 1em;
+    }
+}
+
+/* avaliar */
 .avaliar {
     border: solid 2px black;
     margin-left: 0.5em;
@@ -386,6 +507,12 @@ body {
 
 .adicionar:hover {
     background: linear-gradient(90deg, rgb(32, 32, 71) 15%, rgb(161, 46, 46) 50%, rgb(32, 32, 71) 90%);
+}
+
+@media only screen and (max-width: 600px) {
+    .adicionar {
+        margin-left: 7em;
+    }
 }
 
 /* Adicionar Post */
