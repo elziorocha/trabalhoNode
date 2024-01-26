@@ -114,7 +114,7 @@ function auth2(req, res, next) {
 // middeware de horário de acesso de página
 app.use(logger, (req, res, next) => {
     const currentDate = new Date();
-    console.log(`Solicitação recebida em: ${currentDate}\n-----------\n`);
+    console.log(`Solicitação recebida em: ${currentDate}\n---------------------------------\n`);
     next();
 });
 
@@ -129,8 +129,6 @@ app.get('/', (req, res) => {
 
     <header class="header">
         <a href="/home?admin=true">Nando Company</a>
-
-        <div class="menu-icon" onclick="toggleNav()">☰</div>
 
         <nav>
             <a href="/listaJogos">Jogos</a>
